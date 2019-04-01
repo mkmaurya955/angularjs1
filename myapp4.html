@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head>
+	<title>sorting the data</title>
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script type="text/javascript" src="script4.js"></script>
+</head>
+<body ng-controller="myController">
+	Sorted by:<select ng-model="sortColumn">
+		<option value="Name">Sorted By Name</option>
+		<option value="Date of birth">Sorted By dateof birth</option>
+		<option value="Gender">Sorted By gender</option>
+		<option value="Salary">Sorted By salary</option>
+	</select>
+	<br><br>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Date Of Birth</th>
+				<th>Gender</th>
+				<th>Salary</th>
+			</tr>
+		</thead>
+		<thead>
+			<tr ng-repeat="employee in employees| orderBy: sortColumn" >
+				<td>{{ employee.Name }}</td>
+				<td>{{ employee.Dateofbirth | date:'dd/MM/yyyy' }}</td>
+				<td>{{ employee.Gender }}</td>
+				<td>{{ employee.Salary }}</td>
+			</tr>
+		</thead>
+	</table>
+</body>
+</html>

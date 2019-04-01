@@ -1,0 +1,47 @@
+<!--ng-repeat-->
+<!--Nested ng-repeat-->
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head>
+	<title>ng-repeat</title>
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script type="text/javascript" src="script1.js"></script>
+</head>
+<body ng-controller="myController">
+	<hr>
+	<table border="1" align="center" width="400">
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Gender</th>
+		<th>Salary</th>
+		<tr ng-repeat="employee in employees">
+			<td>{{ employee.firstName }}</td>
+			<td>{{ employee.LastName }}</td>
+			<td>{{ employee.Gender }}</td>
+			<td>{{ employee.Salary }}</td>
+		</tr>
+	</table><hr>
+	<ul>
+		<li ng-repeat="country in countries">
+			{{ country.Name }}
+			<ul>
+				<li ng-repeat="city in country.cities">
+					{{ city.Name }}
+				</li>
+			</ul>
+		</li>
+	</ul>
+	<hr>
+	<ul>
+		<li ng-repeat="country in countries">
+			{{ country.Name }}- Index- {{ $index }}
+			<ul>
+				<li ng-repeat="city in country.cities">
+					{{ city.Name }} - Parent Index- {{ $parent.$index}} Index- {{ $index }}
+				</li>
+			</ul>
+		</li>
+	</ul>
+	<hr>
+</body>
+</html>
